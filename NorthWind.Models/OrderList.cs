@@ -1,0 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace NorthWind.Models
+{
+    public class OrderList
+    {
+        public int OrderId { get; set; }
+        public DateTime OrderDate { get; set; }
+        public int CustomerId { get; set; }
+        public string Customer { get; set; }
+        public int TotalAmount { get; set; }
+        public int TotalRecords { get; set; }
+        public List<OrderItemList> OrderDetails { get; set; }
+        public void SetDetails(List<OrderItemList> details)
+        {
+            OrderDetails = details.Where(x => x.Id == OrderId).ToList();
+        }
+    }
+}

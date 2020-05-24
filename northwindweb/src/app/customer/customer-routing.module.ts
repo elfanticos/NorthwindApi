@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CustomerListComponent } from './customer-list/customer-list.component';
+import { AuthGuard } from '../auth/auth.guard';
+import { Role } from '../auth/role.enum';
 
 const customerRoutes: Routes = [
   {
@@ -8,11 +10,11 @@ const customerRoutes: Routes = [
     children: [
       {
         path: '',
-        component : CustomerListComponent
+        component: CustomerListComponent
       }
     ],
-    // canActivate : [AuthGuard],
-    // data: {      expectedRole: Role.AdminSupplier   }
+    canActivate: [AuthGuard],
+    data: { expectedRole: Role.AdminSupplier }
 
   }
 ];

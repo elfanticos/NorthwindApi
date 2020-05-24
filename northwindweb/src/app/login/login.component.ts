@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
-// import { WhiteSpaceValidator } from '../shared/validators/whiteSpaceValidator';
+import { WhiteSpaceValidator } from '../shared/validators/whiteSpaceValidator';
 
 @Component({
   selector: 'app-login',
@@ -24,8 +24,8 @@ export class LoginComponent implements OnInit {
 
   buildLoginForm(): void {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email, /* WhiteSpaceValidator.cannotContainSpace */]],
-      password: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50), /* WhiteSpaceValidator.cannotContainSpace */]]
+      email: ['', [Validators.required, Validators.email, WhiteSpaceValidator.cannotContainSpace]],
+      password: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50), WhiteSpaceValidator.cannotContainSpace]]
     }) ;
   }
 

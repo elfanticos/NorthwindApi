@@ -8,6 +8,6 @@ namespace NorthWind.Repositories
 {
     public interface ICustomerRepository: IRepository<Customer>
     {
-        IEnumerable<Customer> CutormerPagedList(int page, int rows);
+        IEnumerable<CustomerList> CutormerPagedList(int page, int rows);
     }
 }
